@@ -1,101 +1,300 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çapa Ticaret | Yedek Parça & Tamir Merkezi</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome İkonları -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
-:root {
-    --primary: #0f172a;       /* Gece Mavisi */
-    --accent: #d97706;        /* Altın Sarısı */
-    --whatsapp: #16a34a;      /* WhatsApp Yeşili */
-    --bg-light: #f8fafc;
-    --text-main: #334155;
-    --text-muted: #64748b;
-}
+    <!-- Üst İletişim Bandı -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <span class="location"><i class="fa-solid fa-location-dot"></i> Çorum Merkez, Hamit Camii Karşısı</span>
+            <a href="https://wa.me/905374974283" target="_blank" class="phone"><i class="fa-brands fa-whatsapp"></i> 0537 497 42 83</a>
+        </div>
+    </div>
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+    <!-- Menü (Header) -->
+    <header>
+        <div class="container header-content">
+            <div class="logo" onclick="showPage('home')">
+                ÇAPA <span>TİCARET</span>
+            </div>
+            <nav>
+                <button class="nav-btn active" onclick="showPage('home')">Anasayfa</button>
+                <button class="nav-btn" onclick="showPage('kulplar')">Demlik Kulpları</button>
+                <button class="nav-btn" onclick="showPage('lastikler')">Düdüklü Lastiği</button>
+                <button class="nav-btn" onclick="showPage('kapaklar')">Cam Kapak</button>
+                <button class="nav-btn" onclick="showPage('supurge')">Süpürge Torbası</button>
+                <button class="nav-btn contact-btn" onclick="showPage('iletisim')">İletişim</button>
+            </nav>
+        </div>
+    </header>
 
-body { background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; }
-.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+    <!-- SAYFALAR (SPA Mimarisi) -->
 
-/* Üst Bar */
-.top-bar { background: var(--primary); color: #e2e8f0; padding: 10px 0; font-size: 0.85rem; }
-.top-bar-content { display: flex; justify-content: space-between; align-items: center; }
-.top-bar i { margin-right: 5px; color: var(--accent); }
-.top-bar a { color: #fff; text-decoration: none; font-weight: 700; transition: 0.2s; }
-.top-bar a:hover { color: var(--whatsapp); }
+    <!-- 1. ANASAYFA -->
+    <main id="page-home" class="page active">
+        <!-- Karşılama Alanı (Hero) -->
+        <section class="hero" style="background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2070&auto=format&fit=crop');">
+            <div class="hero-text">
+                <h1>Mutfak Aletlerinizi Yenilemenin <br><span>En Hesaplı Yolu</span></h1>
+                <p>Kırılan, eskiyen veya kaybolan yedek parçalar için cihazınızı atmayın. Çorum'un en büyük mutfak eşyası yedek parça merkezi.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/905374974283" target="_blank" class="btn-primary"><i class="fa-brands fa-whatsapp"></i> Fotoğraf Gönder, Parça Sor</a>
+                    <button class="btn-secondary" onclick="showPage('iletisim')">Konumumuza Bak</button>
+                </div>
+            </div>
+        </section>
 
-/* Menü / Header */
-header { background: #fff; padding: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-.header-content { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.6rem; font-weight: 800; color: var(--primary); cursor: pointer; }
-.logo span { color: var(--accent); }
+        <!-- Kategori Vitrini -->
+        <section class="container showcase">
+            <div class="section-title">
+                <h2>Ürün Kategorilerimiz</h2>
+                <p>İhtiyacınız olan parçayı seçin, WhatsApp üzerinden anında sipariş verin.</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card" onclick="showPage('kulplar')">
+                    <img src="format_webp.webp" alt="Demlik Kulpu">
+                    <div class="card-content">
+                        <h3>Demlik & Tencere Kulpları</h3>
+                        <p>Yanmaz bakalit ve çelik kulp modelleri.</p>
+                    </div>
+                </div>
+                
+                <div class="card" onclick="showPage('lastikler')">
+                    <img src="IMG-2554860835369761932.webp" alt="Düdüklü Tencere">
+                    <div class="card-content">
+                        <h3>Düdüklü Lastikleri</h3>
+                        <p>Fissler, Tefal, Korkmaz uyumlu contalar.</p>
+                    </div>
+                </div>
 
-nav { display: flex; gap: 8px; flex-wrap: wrap; }
-.nav-btn { background: transparent; border: none; color: var(--text-main); font-size: 0.95rem; font-weight: 600; padding: 10px 16px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-.nav-btn:hover { background: #f1f5f9; color: var(--accent); }
-.nav-btn.active { background: #fef3c7; color: #b45309; }
-.contact-btn { background: var(--primary); color: #fff; }
-.contact-btn:hover { background: #1e293b; color: #fff; }
+                <div class="card" onclick="showPage('kapaklar')">
+                    <img src="shopping.webp" alt="Cam Kapak">
+                    <div class="card-content">
+                        <h3>Isıya Dayanıklı Cam Kapaklar</h3>
+                        <p>14cm'den 32cm'e kadar temperli kapaklar.</p>
+                    </div>
+                </div>
 
-/* SPA Sayfaları */
-.page { display: none; animation: fadeIn 0.3s ease-in-out; }
-.page.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+                <div class="card" onclick="showPage('supurge')">
+                    <img src="d0.jpg" alt="Süpürge">
+                    <div class="card-content">
+                        <h3>Süpürge Torbaları</h3>
+                        <p>Her markaya uygun toz torbası ve hortumlar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-/* Anasayfa Hero */
-.hero { height: 60vh; min-height: 400px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 20px; }
-.hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 15px; line-height: 1.2; }
-.hero h1 span { color: var(--accent); }
-.hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; color: #e2e8f0; }
+    <!-- 2. DEMLİK KULPLARI -->
+    <main id="page-kulplar" class="page">
+        <div class="container content-page">
+            <div class="page-header">
+                <h2>Demlik & Tencere Kulpları</h2>
+                <p>Eskiyen kulplarınızı orijinal hissiyatında, yüksek ısıya dayanıklı yeni kulplarla değiştirin.</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="format_webp.webp" alt="Kırmızı Kulp">
+                    <div class="product-info">
+                        <span class="badge">Çok Satan</span>
+                        <h3>Kırmızı Çaydanlık & Tencere Kulpu</h3>
+                        <p>Isınma yapmaz, el yakmaz şık tasarım. Standart tencerelere perçinli veya vidalı uyum sağlar.</p>
+                        <a href="https://wa.me/905374974283?text=Merhaba,%20kırmızı%20tencere/demlik%20kulpu%20almak%20istiyorum." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Sipariş Ver</a>
+                    </div>
+                </div>
 
-.btn-primary { background: var(--whatsapp); color: #fff; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1rem; display: inline-block; transition: 0.2s; border: none; cursor: pointer; }
-.btn-primary:hover { background: #15803d; transform: translateY(-2px); }
-.btn-secondary { background: #fff; color: var(--primary); padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1rem; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin-left: 10px; }
-.btn-secondary:hover { background: #f1f5f9; }
+                <div class="product-card">
+                    <img src="1_org_zoom.webp" alt="Siyah Kulp">
+                    <div class="product-info">
+                        <span class="badge">Dayanıklı</span>
+                        <h3>Siyah Silikon Kulp Tutacakları</h3>
+                        <p>Tencere kulplarına geçirilen, yüksek ısıya dayanıklı siyah yanmaz tutacaklar.</p>
+                        <a href="https://wa.me/905374974283?text=Merhaba,%20siyah%20kulp%20tutacağı%20almak%20istiyorum." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Sipariş Ver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-/* Kategori Vitrini (Anasayfa Altı) */
-.showcase { padding: 80px 0; }
-.section-title { text-align: center; margin-bottom: 50px; }
-.section-title h2 { font-size: 2.2rem; color: var(--primary); font-weight: 800; }
+    <!-- 3. DÜDÜKLÜ LASTİKLERİ -->
+    <main id="page-lastikler" class="page">
+        <div class="container content-page">
+            <div class="page-header">
+                <h2>Düdüklü Tencere Sızdırmazlık Lastikleri</h2>
+                <p>Buhar kaçıran düdüklü tencereleriniz için gıdaya uygun %100 silikon contalar.</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="IMG-2554860835369761932.webp" alt="Standart Lastik">
+                    <div class="product-info">
+                        <span class="badge">Klasik Tip</span>
+                        <h3>Standart Çember Lastikler</h3>
+                        <p>20-22-24cm gibi farklı çap ölçülerinde, klasik düdüklü tencereler için yüksek ısıya dayanıklı contalar.</p>
+                        <a href="https://wa.me/905374974283?text=Merhaba,%20standart%20çember%20düdüklü%20lastiği%20istiyorum." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Sor</a>
+                    </div>
+                </div>
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-.card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; border: 1px solid transparent; }
-.card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-/* RESİM KESİLMESİNİ ÖNLEYEN KOD BURADA */
-.card img { width: 100%; height: 200px; object-fit: contain; padding: 20px; background: #fff; }
-.card-content { padding: 25px; text-align: center; }
-.card-content h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 10px; }
+                <div class="product-card">
+                    <img src="korkmaz-a153-tessa-z.avif" alt="Korkmaz Tipi Conta">
+                    <div class="product-info">
+                        <span class="badge">Yeni Nesil</span>
+                        <h3>Korkmaz Tessa Tipi Conta</h3>
+                        <p>Özel çentikli yapısıyla yeni nesil klipsli düdüklü tencerelere tam uyum sağlayan orijinal silikon.</p>
+                        <a href="https://wa.me/905374974283?text=Merhaba,%20Korkmaz%20Tessa%20tipi%20düdüklü%20lastiği%20istiyorum." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Sor</a>
+                    </div>
+                </div>
 
-/* Alt Sayfa Şablonu */
-.content-page { padding: 60px 0 100px; }
-.page-header { text-align: center; margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto; }
-.page-header h2 { font-size: 2.4rem; color: var(--primary); font-weight: 800; margin-bottom: 15px; }
+                <div class="product-card">
+                    <img src="images.jpg" alt="Çentikli Conta">
+                    <div class="product-info">
+                        <span class="badge">Özel Kesim</span>
+                        <h3>Dalgalı / Çentikli Conta</h3>
+                        <p>Fissler ve benzeri özel kapak mekanizmalı tencereler için sızdırmazlığı garantileyen dalgalı lastik.</p>
+                        <a href="https://wa.me/905374974283?text=Merhaba,%20dalgalı/çentikli%20düdüklü%20lastiği%20istiyorum." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Sor</a>
+                    </div>
+                </div>
 
-/* Ürün Kartları (Katalog) */
-.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-.product-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
-/* RESİM KESİLMESİNİ ÖNLEYEN KOD BURADA */
-.product-card img { width: 100%; height: 280px; object-fit: contain; padding: 30px; background: #fff; }
-.product-info { padding: 30px; position: relative; display: flex; flex-direction: column; flex-grow: 1; }
-.badge { position: absolute; top: -15px; right: 20px; background: var(--accent); color: #fff; font-size: 0.8rem; font-weight: 700; padding: 6px 12px; border-radius: 20px; }
-.product-info h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 10px; }
-.product-info p { color: var(--text-muted); margin-bottom: 25px; flex-grow: 1; }
+                <div class="product-card">
+                    <img src="IMG-2075745436794213090.webp" alt="Geniş Tabanlı Conta">
+                    <div class="product-info">
+                        <span class="badge">Geniş Profil</span>
+                        <h3>Geniş Tabanlı Dudaklı Conta</h3>
+                        <p>Tefal Clipso ve benzeri geniş yuvalı tencereler için tasarlanmış, buhar kaçışını %100 önleyen kalın conta.</p>
+                        <a href="https://wa.me/905374974283?text=Merhaba,%20geniş%20tabanlı%20Tefal%20tipi%20lastik%20istiyorum." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Sor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-.btn-whatsapp { background: var(--whatsapp); color: #fff; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: 700; text-align: center; display: block; transition: 0.2s; }
-.btn-whatsapp:hover { background: #15803d; }
-.btn-whatsapp i { margin-right: 8px; font-size: 1.2rem; }
+    <!-- 4. CAM KAPAKLAR -->
+    <main id="page-kapaklar" class="page">
+        <div class="container content-page">
+            <div class="page-header">
+                <h2>Isıya Dayanıklı Temperli Cam Kapaklar</h2>
+                <p>Çelik, granit veya döküm tüm tencereleriniz için buhar delikli çelik çerçeveli kapaklar.</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="shopping.webp" alt="Cam Kapak">
+                    <div class="product-info">
+                        <span class="badge">Isıya Dayanıklı</span>
+                        <h3>Tencere & Tava Cam Kapağı</h3>
+                        <p>14, 16, 18, 20, 22, 24, 26, 28, 30 ve 32 cm ölçülerinde, kırılmaz temperli cam kapaklar.</p>
+                        <a href="https://wa.me/905374974283?text=Merhaba,%20cam%20kapak%20istiyorum.%20Tenceremin%20ağız%20çapı%20ölçüsü:" target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Ölçünü Yazıp Sor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-/* İletişim Kutusu */
-.contact-box { background: #fff; padding: 50px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto; text-align: center; }
-.info-item { display: flex; align-items: center; text-align: left; gap: 20px; margin-bottom: 30px; }
-.info-item i { font-size: 2rem; color: var(--accent); width: 40px; text-align: center; }
-.info-item h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 5px; }
+    <!-- 5. SÜPÜRGE TORBALARI -->
+    <main id="page-supurge" class="page">
+        <div class="container content-page">
+            <div class="page-header">
+                <h2>Süpürge Torbaları & Aksesuarlar</h2>
+                <p>Motor ömrünü uzatan ve %99 toz hapseden orijinal bez ve kağıt süpürge torbaları.</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="d0.jpg" alt="Karton Girişli Torba">
+                    <div class="product-info">
+                        <span class="badge">Kağıt Torba</span>
+                        <h3>Standart Toz Torbası</h3>
+                        <p>Yüksek emiş gücü sağlayan, standart karton girişli dayanıklı toz torbası.</p>
+                        <a href="https://wa.me/905374974283?text=Merhaba,%20karton%20girişli%20kağıt%20toz%20torbası%20istiyorum." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Sor</a>
+                    </div>
+                </div>
 
-/* Footer */
-footer { background: var(--primary); color: #94a3b8; text-align: center; padding: 25px 0; font-size: 0.9rem; }
+                <div class="product-card">
+                    <img src="arcelik-s-4240-s-4250-s-6260-supurge-bez-toz-torbasi-20-adet-kc3371619-1-3a9595da26854a44918c99b65b9904c4.jpg" alt="Mavi Plastik Girişli Torba">
+                    <div class="product-info">
+                        <span class="badge">Bez Torba</span>
+                        <h3>Arçelik / Beko Uyumlu Torba</h3>
+                        <p>Mavi plastik girişli, motoru koruyan uzun ömürlü sentetik bez toz torbası.</p>
+                        <a href="https://wa.me/905374974283?text=Merhaba,%20mavi%20plastik%20girişli%20bez%20torba%20istiyorum." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Sor</a>
+                    </div>
+                </div>
 
-/* Mobil Tasarım */
-@media (max-width: 768px) {
-    .header-content { flex-direction: column; gap: 15px; }
-    nav { justify-content: center; }
-    .hero h1 { font-size: 2.2rem; }
-    .hero-buttons { display: flex; flex-direction: column; gap: 10px; }
-    .btn-secondary { margin-left: 0; }
-}
+                <div class="product-card">
+                    <img src="20244781_r1_1000_1000.jpg" alt="Siyah Plastik Girişli Torba">
+                    <div class="product-info">
+                        <span class="badge">Sentetik</span>
+                        <h3>Yüksek Performanslı Torba</h3>
+                        <p>Tozu %99 hapseden, yırtılmaz siyah plastik girişli sentetik model.</p>
+                        <a href="https://wa.me/905374974283?text=Merhaba,%20siyah%20plastik%20girişli%20torba%20istiyorum." target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Sor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 6. İLETİŞİM -->
+    <main id="page-iletisim" class="page">
+        <div class="container content-page">
+            <div class="page-header">
+                <h2>İletişim & Dükkan Konumu</h2>
+                <p>Çorum merkezdeki mağazamıza gelip ürünleri elden alabilir veya tüm Türkiye'ye kargo isteyebilirsiniz.</p>
+            </div>
+            
+            <div class="contact-box">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h3>Açık Adresimiz</h3>
+                        <p>Çapa Ticaret Yedek Parça<br>Çorum Merkez, Hamit Camii Karşısı</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div>
+                        <h3>Telefon & WhatsApp</h3>
+                        <p>0537 497 42 83</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <div>
+                        <h3>Kargo Bilgisi</h3>
+                        <p>Saat 15:00'a kadar verilen siparişler aynı gün anlaşmalı kargoya teslim edilir.</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/905374974283" target="_blank" class="btn-whatsapp" style="margin-top: 30px;"><i class="fa-brands fa-whatsapp"></i> Mesaj Göndermek İçin Tıklayın</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© Çapa Ticaret - Tüm Hakları Saklıdır. | Çorum Yedek Parça & Tamir</p>
+        </div>
+    </footer>
+
+    <!-- JS: Sayfa Geçiş Scripti -->
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + pageId).classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
