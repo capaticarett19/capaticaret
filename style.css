@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #0f172a;       
+    --accent: #f59e0b;        
+    --whatsapp: #22c55e;      
+    --bg-light: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+}
+
+body { 
+    background-color: var(--bg-light); 
+    color: var(--text-main); 
+    line-height: 1.6; 
+}
+
+.container { 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+/* Üst Bar */
+.top-bar { 
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+    color: #e2e8f0; 
+    padding: 12px 0; 
+    font-size: 0.85rem; 
+    border-bottom: 1px solid rgba(255,255,255,0.05); 
+}
+
+.top-bar-content { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.top-bar i { 
+    margin-right: 6px; 
+    color: var(--accent); 
+}
+
+.top-bar a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: 700; 
+    transition: var(--transition); 
+}
+
+.top-bar a:hover { 
+    color: var(--whatsapp); 
+}
+
+/* Menü / Header */
+header {
